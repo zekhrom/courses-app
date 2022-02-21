@@ -1,0 +1,7 @@
+div.MuiGrid-root.create-course {
+    padding: 20px;
+}
+
+div.MuiGrid-root.create-course > div.MuiPaper-root { margin: 20px;}
+
+div.leftGrid { padding: 20px 0 0 20px;}
