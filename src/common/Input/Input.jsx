@@ -8,5 +8,6 @@ export const Input = (props) => (
 		onChange={props.handleOnChange}
 		label={props.label}
 		multiline={props.multiline}
+		type={props.type}
 	></TextField>
 );

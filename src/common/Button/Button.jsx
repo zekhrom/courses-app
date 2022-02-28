@@ -8,6 +8,7 @@ export const Button = (props) => (
 		sx={{ color: 'primary.main' }}
 		className={getClasses(props.classes)}
 		onClick={props.handleClick}
+		type={props.type}
 	>
 		{props.text}
 	</ButtonBase>

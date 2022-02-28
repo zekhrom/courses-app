@@ -1,14 +1,16 @@
 import { Card, CardContent, Grid } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button } from '../../common/Button/Button';
 import { Input } from '../../common/Input/Input';
 import { pipeDuration } from '../../helpers/pipeDuration';
 import { v4 as uuidv4 } from 'uuid';
 import './CreateCourse.css';
+import { useNavigate } from 'react-router-dom';
 
 export const CreateCourse = (props) => {
 	const [authorField, setAuthorField] = useState('');
 	const [newCourse, setNewCourse] = useState({});
+	const navigate = useNavigate();
 
 	const getDuration = () => {
 		return newCourse.duration ? newCourse.duration : 0;
@@ -47,6 +49,8 @@ export const CreateCourse = (props) => {
 			creationDate: new Date().toLocaleString().split(',')[0],
 		};
 		props.return(tempCourse);
+
+		navigate('/courses');
 	};
 
 	const onDurationChange = (e) =>

@@ -1,27 +1,37 @@
 import { Box, Grid } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../../common/Button/Button';
-import { buttonText, userName } from '../../constants';
+import { buttonText } from '../../constants';
 import { Logo } from './components/Logo/Logo';
 
-const handleClick = () => console.log('button clicked');
+export const Header = (props) => {
+	const token = localStorage.getItem('token');
+	const navigate = useNavigate();
 
-export const Header = () => {
+	const handleClick = () => {
+		localStorage.removeItem('token');
+		localStorage.removeItem('user');
+		props.onUserChange('');
+		navigate('/login');
+	};
 	return (
-		<Box>
-			<Grid container spacing={2}>
+		<Box className='header'>
+			<Grid container spacing={2} style={{ margin: 10 }}>
 				<Grid item md={9}>
 					<Logo />
 				</Grid>
 				<Grid item container md={3}>
 					<Grid item md={12}>
-						{userName}
+						{props.user && props.user.name}
 					</Grid>
 					<Grid item>
-						<Button
-							text={buttonText}
-							handleClick={handleClick}
-							classes={['LinkButton']}
-						/>
+						{token && (
+							<Button
+								text={buttonText}
+								handleClick={handleClick}
+								classes={['LinkButton']}
+							/>
+						)}
 					</Grid>
 				</Grid>
 			</Grid>

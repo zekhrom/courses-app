@@ -44,8 +44,3 @@ export const mockedAuthorsList = [
 		name: 'Valentina Larina',
 	},
 ];
-
-export const getAuthorName = (ids, authorList) => {
-	const found = authorList ? authorList.filter((i) => ids.includes(i.id)) : [];
-	return found ? found.map((i) => i.name).join(', ') : '';
-};

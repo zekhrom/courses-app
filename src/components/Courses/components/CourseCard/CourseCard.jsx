@@ -3,10 +3,10 @@ import { Button } from '../../../../common/Button/Button';
 import { pipeDuration } from '../../../../helpers/pipeDuration';
 import { dateGenerator } from '../../../../helpers/dateGeneratop';
 import './courseCard.css';
-
-const handleClick = () => console.log('button clicked');
+import { useNavigate } from 'react-router-dom';
 
 export const CourseCard = (props) => {
+	const navigate = useNavigate();
 	const getAuthorName = (ids) => {
 		const found = props.authorList
 			? props.authorList.filter((i) => ids.includes(i.id))
@@ -39,7 +39,10 @@ export const CourseCard = (props) => {
 								{dateGenerator(props.creationDate)}
 							</Grid>
 							<Grid item md={12}>
-								<Button text='Show course' handleClick={handleClick} />
+								<Button
+									text='Show course'
+									handleClick={() => navigate(`/courses/${props.id}`)}
+								/>
 							</Grid>
 						</Grid>
 					</Grid>

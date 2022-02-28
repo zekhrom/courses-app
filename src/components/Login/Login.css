@@ -1,0 +1,7 @@
+.login, .login-button {
+    width: 100%;
+}
+
+.login-form > .MuiFormControl-root {
+    margin: 5px;
+}
